@@ -101,6 +101,9 @@ You can verify that the `emulated_hue` component has been loaded and is respondi
  - `http://<HA IP Address>:8300/description.xml` - This URL should return a descriptor file in the form of an XML file.
  - `http://<HA IP Address>:8300/api/pi/lights` - This will return a list of devices, lights, scenes, groups, etc.. that `emulated_hue` is exposing to Alexa.
 
+If you have set up your environment using `virtualenv` and are connecting to a Google Home, you will not have permission to open required port 80. A workaround is to give `home-assistant` permisison to open ports normally restricted to the root user:
+
+`setcap cap_net_bind_service=+ep /srv/hass/bin/hass` (assuming `/srv/hass/bin/hass` is the location of the binary)
 
 ### {% linkable_title License %}
 
